@@ -30,7 +30,7 @@ class App extends Component {
       <HashRouter>
         <UsePageViews />
         <div className='App'>
-          <h1>Framtíðni</h1>
+          <h1>Framtíðni - test</h1>
           <ul className='header'>
             <li>
               <NavLink to='/'>Heim</NavLink>
