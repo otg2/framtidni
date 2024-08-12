@@ -12,7 +12,7 @@ import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 
-const TRACKING_ID = 'UA-XXXXXXXXX-X'; // Your Google Analytics tracking ID
+const TRACKING_ID = 'G-D2Y2R1104T'; // Your Google Analytics tracking ID
 ReactGA.initialize(TRACKING_ID);
 
 const UsePageViews = () => {
