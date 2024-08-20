@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
+import './SendEmail';
+import SendEmail from './SendEmail';
 
-class Contact extends Component {
-  render() {
-    return (
+export default function Contact({ contentfulFields }) {
+  return (
+    <div className='background-green'>
       <div>
-        <h3>Tengjumst!</h3>
-        <p>Við erum algjörir grallarar og alltaf til í stuð</p>
-        <h4>Contact Details:</h4>
+        <h3>{contentfulFields.contactTitle}</h3>
+        <p>{contentfulFields.contactDescription}</p>
         <ul>
           <li>
-            <strong>Netfang:</strong> fram@tidni.is
+            <strong>Netfang:</strong> {contentfulFields.contactEmail}
           </li>
           <li>
-            <strong>Sími:</strong> +354 693-3881
+            <strong>Sími:</strong> {contentfulFields.contactPhoneNumber}
           </li>
           <li>
-            <strong>Heimilisfang:</strong> Skútuvogur 123
+            <strong>Heimilisfang:</strong>
+            {contentfulFields.contactLocation}
           </li>
         </ul>
       </div>
-    );
-  }
+      <div>
+        <SendEmail contentfulFields={contentfulFields} />
+      </div>
+    </div>
+  );
 }
-
-export default Contact;
