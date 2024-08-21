@@ -4,6 +4,7 @@ import { Route, NavLink, Routes, HashRouter } from 'react-router-dom';
 import { createClient } from 'contentful';
 
 import './index.css';
+import './input.css';
 
 import HeroBanner from './HeroBanner';
 import Service from './Service';
@@ -16,6 +17,19 @@ const client = createClient({
   accessToken: 'nGuBmc507f3dwztkmQjhGt9JTYEOMnR6WI-Jlk9h254', // Replace with your Access Token
 });
 
+// Needed?
+/*function updateNavigation(navigationRef, pos, value) {
+  const updatedNavigation = navigationRef.map((c, i) => {
+    if (i === pos) {
+      // Increment the clicked counter
+      return { name: value, href: '#' };
+    } else {
+      // The rest haven't changed
+      return c;
+    }
+  });
+}*/
+
 //class App extends Component {
 function App() {
   // Track page views
@@ -25,11 +39,20 @@ function App() {
   const [about, setAbout] = useState('');
   const [contact, setContact] = useState('');
 
+  var initNavigation = [
+    { name: 'service_placeholder', href: '#' },
+    { name: 'project_placeholder', href: '#' },
+    { name: 'about_placeholder', href: '#' },
+    { name: 'contact_placeholder', href: '#' },
+  ];
+  const [navigation, setNavigation] = useState(initNavigation);
+
   useEffect(() => {
     client
       .getEntries()
       .then((response) => {
         var allItems = response.items;
+        //console.log(allItems);
         for (let index = 0; index < allItems.length; index++) {
           const element = allItems[index];
           switch (element.sys.contentType.sys.id) {
@@ -38,14 +61,21 @@ function App() {
               break;
             case 'service':
               setService(element.fields);
+              /*setNavigation(
+                updateNavigation(navigation, 0, element.fields.serviceTitle)
+              );*/
+              navigation[0] = { name: element.fields.serviceTitle, href: '#' };
               break;
             case 'project':
+              navigation[1] = { name: element.fields.projectTitle, href: '#' };
               setProject(element.fields);
               break;
             case 'about':
+              navigation[2] = { name: element.fields.aboutTitle, href: '#' };
               setAbout(element.fields);
               break;
             case 'contact':
+              navigation[3] = { name: element.fields.contactTitle, href: '#' };
               setContact(element.fields);
               break;
             default:
@@ -58,7 +88,7 @@ function App() {
 
   return (
     <div>
-      <HeroBanner contentfulFields={heroBanner} />
+      <HeroBanner contentfulFields={heroBanner} navigation={navigation} />
       <Service contentfulFields={service} />
       <Project contentfulFields={project} />
       <About contentfulFields={about} />
