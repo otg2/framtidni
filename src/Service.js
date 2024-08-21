@@ -20,19 +20,14 @@ const posts = [
   },
 ];
 
-export default function Service({ contentfulFields }) {
+export default function Service({ contentfulFields, customRef }) {
   var serviceItems = [];
   if (contentfulFields) {
-    serviceItems = contentfulFields.serviceItems.map(
-      (d) => d.fields
-      /*<li key={d.fields.serviceItemTitle}>
-        {d.fields.serviceItemTitle} - {d.fields.serviceItemDescription}
-      </li>*/
-    );
+    serviceItems = contentfulFields.serviceItems.map((d) => d.fields);
   }
 
   return (
-    <div className='bg-white py-24 sm:py-32'>
+    <div ref={customRef} className='bg-white py-24 sm:py-32'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <div className='mx-auto lg:mx-0'>
           <h2 className='text-center font-bold tracking-tight text-orange-500 sm:text-4xl'>
@@ -46,7 +41,7 @@ export default function Service({ contentfulFields }) {
               className='flex max-w-xl flex-col items-start justify-between'
             >
               <div className='group relative'>
-                <h3 className='mt-3 text-lg font-semibold leading-6 text-indigo-800 group-hover:text-indigo-500'>
+                <h3 className='mt-3 text-lg font-bold leading-6 text-indigo-800 group-hover:text-indigo-500'>
                   <p
                   //href={post.href}
                   >

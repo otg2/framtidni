@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useRef, Component, useState, useEffect } from 'react';
 import { Route, NavLink, Routes, HashRouter } from 'react-router-dom';
 
 import { createClient } from 'contentful';
@@ -40,12 +40,17 @@ function App() {
   const [contact, setContact] = useState('');
 
   var initNavigation = [
-    { name: 'service_placeholder', href: '#' },
-    { name: 'project_placeholder', href: '#' },
-    { name: 'about_placeholder', href: '#' },
-    { name: 'contact_placeholder', href: '#' },
+    { id: 'service', name: 'service_placeholder', href: '#' },
+    { id: 'project', name: 'project_placeholder', href: '#' },
+    { id: 'about', name: 'about_placeholder', href: '#' },
+    { id: 'contact', name: 'contact_placeholder', href: '#' },
   ];
   const [navigation, setNavigation] = useState(initNavigation);
+
+  const serviceRef = useRef();
+  const projectRef = useRef();
+  const aboutRef = useRef();
+  const contactRef = useRef();
 
   useEffect(() => {
     client
@@ -61,21 +66,34 @@ function App() {
               break;
             case 'service':
               setService(element.fields);
-              /*setNavigation(
-                updateNavigation(navigation, 0, element.fields.serviceTitle)
-              );*/
-              navigation[0] = { name: element.fields.serviceTitle, href: '#' };
+              navigation[0] = {
+                id: 'service',
+                name: element.fields.serviceTitle,
+                ref: serviceRef,
+              };
               break;
             case 'project':
-              navigation[1] = { name: element.fields.projectTitle, href: '#' };
+              navigation[1] = {
+                id: 'project',
+                name: element.fields.projectTitle,
+                ref: projectRef,
+              };
               setProject(element.fields);
               break;
             case 'about':
-              navigation[2] = { name: element.fields.aboutTitle, href: '#' };
+              navigation[2] = {
+                id: 'about',
+                name: element.fields.aboutTitle,
+                ref: aboutRef,
+              };
               setAbout(element.fields);
               break;
             case 'contact':
-              navigation[3] = { name: element.fields.contactTitle, href: '#' };
+              navigation[3] = {
+                id: 'contact',
+                name: element.fields.contactTitle,
+                ref: contactRef,
+              };
               setContact(element.fields);
               break;
             default:
@@ -89,35 +107,11 @@ function App() {
   return (
     <div>
       <HeroBanner contentfulFields={heroBanner} navigation={navigation} />
-      <Service contentfulFields={service} />
-      <Project contentfulFields={project} />
-      <About contentfulFields={about} />
-      <Contact contentfulFields={contact} />
+      <Service contentfulFields={service} customRef={serviceRef} />
+      <Project contentfulFields={project} customRef={projectRef} />
+      <About contentfulFields={about} customRef={aboutRef} />
+      <Contact contentfulFields={contact} customRef={contactRef} />
     </div>
-    // <HashRouter>
-    //   <div className='App'>
-    //     <h1>Framtíðni - test</h1>
-    //     <ul className='header'>
-    //       <li>
-    //         <NavLink to='/'>Heim</NavLink>
-    //       </li>
-    //       <li>
-    //         <NavLink to='/about'>Um okkur</NavLink>
-    //       </li>
-    //       <li>
-    //         <NavLink to='/contact'>Hafðu samband</NavLink>
-    //       </li>
-    //     </ul>
-    //     <div className='content'>
-    //       <Routes>
-    //         <Route exact path='/' element={<Home />}></Route>
-    //         <Route exact path='/about' element={<About />}></Route>
-    //         <Route exact path='/contact' element={<Contact />}></Route>
-    //       </Routes>
-    //     </div>
-    //   </div>
-    // </HashRouter>
   );
 }
-//}
 export default App;
