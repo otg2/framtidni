@@ -17,19 +17,6 @@ const client = createClient({
   accessToken: 'nGuBmc507f3dwztkmQjhGt9JTYEOMnR6WI-Jlk9h254', // Replace with your Access Token
 });
 
-// Needed?
-/*function updateNavigation(navigationRef, pos, value) {
-  const updatedNavigation = navigationRef.map((c, i) => {
-    if (i === pos) {
-      // Increment the clicked counter
-      return { name: value, href: '#' };
-    } else {
-      // The rest haven't changed
-      return c;
-    }
-  });
-}*/
-
 //class App extends Component {
 function App() {
   // Track page views
