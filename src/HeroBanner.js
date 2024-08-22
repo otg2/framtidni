@@ -17,14 +17,18 @@ export default function HeroBanner({ contentfulFields, navigation }) {
           className='flex items-center justify-between p-6 lg:px-8'
         >
           <div className='flex lg:flex-1'>
-            <a href='#' className='-m-1.5 p-1.5'>
+            <h1 className='text-3xl font-bold tracking-tight text-gray-50 sm:text-3xl'>
+              Framtíðni
+            </h1>
+            {/* <a href='#' className='-m-1.5 p-1.5'>
               <span className='sr-only'>Framtíðni</span>
+              Todo - Logo
               <img
                 alt=''
                 src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
                 className='h-8 w-auto'
               />
-            </a>
+            </a> */}
           </div>
           <div className='flex lg:hidden'>
             <button
@@ -46,7 +50,8 @@ export default function HeroBanner({ contentfulFields, navigation }) {
                 }
                 key={item.name}
                 href={item.href}
-                className='text-sm font-semibold leading-6 text-gray-50'
+                className='text-sm font-semibold leading-6 text-gray-50 hover:cursor-pointer
+                 hover:text-orange-500 hover:font-semibold'
               >
                 {item.name}
               </a>
@@ -124,7 +129,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
                   })
                 }
                 href='#'
-                className='rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                className='rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
               >
                 Hafa samband
               </a>

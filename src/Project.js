@@ -9,7 +9,7 @@ export default function Project({ contentfulFields, customRef }) {
   return (
     <div ref={customRef} className='bg-framtidni-green py-24 sm:py-32'>
       <div className='mx-auto lg:mx-0'>
-        <h2 className='text-center font-bold tracking-tight text-gray-50 text-4xl'>
+        <h2 className='text-center font-bold tracking-tight text-gray-50 text-4xl pb-4'>
           {contentfulFields.projectTitle}
         </h2>
       </div>
