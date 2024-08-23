@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'framtidni-green': '#0E5862',
+        'checkbox-green': '#66B1A4',
       },
     },
   },

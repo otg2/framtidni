@@ -1,15 +1,17 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 function SendEmail({ contentfulFields }) {
-  const [emailSent, setSendEmail] = useState(false);
+  const [sendToSelf, setSendToSelf] = useState(true);
+  const handleSendToSelf = (e) => {
+    setSendToSelf(!sendToSelf);
+  };
 
   const emailForm = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    var sendSuccess = false;
     // https://www.emailjs.com/docs/faq/is-it-okay-to-expose-my-public-key/
     emailjs
       .sendForm('service_4zl6mh2', 'template_waor0r4', emailForm.current, {
@@ -17,8 +19,8 @@ function SendEmail({ contentfulFields }) {
       })
       .then(
         () => {
-          setSendEmail(true);
-          emailForm.current.reset();
+          console.log('Email sent to framtidni');
+          sendSuccess = true;
         },
         (error) => {
           alert(
@@ -27,6 +29,24 @@ function SendEmail({ contentfulFields }) {
           console.log('Failed', error);
         }
       );
+    if (sendToSelf) {
+      emailjs
+        .sendForm('service_4zl6mh2', 'template_obt1icj', emailForm.current, {
+          publicKey: 'AKkcCk3ehaSqqM1q5',
+        })
+        .then(
+          () => {
+            console.log('Copy of email sent to framtidni');
+            sendSuccess = true;
+          },
+          (error) => {
+            console.log('Failed', error);
+          }
+        );
+    }
+    if (sendSuccess) {
+      emailForm.current.reset();
+    }
   };
 
   return (
@@ -57,20 +77,27 @@ function SendEmail({ contentfulFields }) {
             ></textarea>
           </div>
           <div className='w-full p-2 items-start'>
-            {!emailSent && (
-              <button
-                type='submit'
-                className='flex px-8 py-2 mx-auto text-lg text-white rounded-full bg-orange-600 hover:bg-orange-dark focus:outline-none float-end disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
-              >
-                Senda
-              </button>
-            )}
-            {emailSent && (
-              <CheckCircleIcon
-                aria-hidden='true'
-                className='mx-1 h-11 w-11 stroke-orange-400 float-end'
+            <div className='flex items-center float-start'>
+              <input
+                checked={sendToSelf}
+                type='checkbox'
+                onChange={handleSendToSelf}
+                className='w-8 h-8 accent-checkbox-green'
               />
-            )}
+
+              <label
+                forhtml='checked-checkbox'
+                className='ms-2 text-sm font-medium text-gray-100'
+              >
+                Senda mér afrit af skilaboðum
+              </label>
+            </div>
+            <button
+              type='submit'
+              className='flex px-8 py-2 mx-auto text-lg text-white rounded-full bg-orange-600 hover:bg-orange-dark focus:outline-none float-end disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
+            >
+              Senda
+            </button>
           </div>
         </div>
       </form>
