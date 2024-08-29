@@ -51,7 +51,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
                 key={item.name}
                 href={item.href}
                 className='text-sm font-semibold leading-6 text-gray-50 hover:cursor-pointer
-                 hover:text-orange-500 hover:font-semibold'
+                  hover:font-semibold hover:underline hover:underline-offset-8'
               >
                 {item.name}
               </a>
