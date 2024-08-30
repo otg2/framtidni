@@ -728,14 +728,6 @@ video {
   margin-top: 2rem;
 }
 
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -1080,10 +1072,6 @@ video {
   padding-top: 3.5rem;
 }
 
-.pb-6 {
-  padding-bottom: 1.5rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1211,10 +1199,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.underline {
-  text-decoration-line: underline;
-}
-
 .accent-checkbox-green {
   accent-color: #66B1A4;
 }
@@ -1248,17 +1232,8 @@ video {
   font-weight: 600;
 }
 
-.hover\:text-orange-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(249 115 22 / var(--tw-text-opacity));
-}
-
 .hover\:underline:hover {
   text-decoration-line: underline;
-}
-
-.hover\:underline-offset-2:hover {
-  text-underline-offset: 2px;
 }
 
 .hover\:underline-offset-8:hover {
