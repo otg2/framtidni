@@ -6,9 +6,16 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function HeroBanner({ contentfulFields, navigation }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  console.log(contentfulFields);
+
+  var heroBannerImageUrl;
+  if (contentfulFields.heroBannerImage) {
+    heroBannerImageUrl = contentfulFields.heroBannerImage
+      ? contentfulFields.heroBannerImage.fields.file.url
+      : null;
+  }
 
   const aboutSection = navigation.find((item) => item.id === 'contact');
-
   return (
     <div className='bg-white'>
       <header className='absolute inset-x-0 top-0 z-50'>
@@ -17,18 +24,23 @@ export default function HeroBanner({ contentfulFields, navigation }) {
           className='flex items-center justify-between p-6 lg:px-8'
         >
           <div className='flex lg:flex-1'>
-            <h1 className='text-3xl font-bold tracking-tight text-gray-50 sm:text-3xl'>
+            {/* <h1 className='text-3xl font-bold tracking-tight text-gray-50 sm:text-3xl'>
               Framtíðni
-            </h1>
-            {/* <a href='#' className='-m-1.5 p-1.5'>
-              <span className='sr-only'>Framtíðni</span>
-              Todo - Logo
-              <img
-                alt=''
-                src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
-                className='h-8 w-auto'
-              />
-            </a> */}
+            </h1> */}
+            {
+              <a href='#' className='-m-1.5 p-1.5'>
+                <span className='sr-only'>Framtíðni</span>
+                <img
+                  alt=''
+                  src={
+                    contentfulFields.logoNav
+                      ? contentfulFields.logoNav.fields.file.url
+                      : null
+                  }
+                  className='h-14 w-auto'
+                />
+              </a>
+            }
           </div>
           <div className='flex lg:hidden'>
             <button
@@ -66,14 +78,18 @@ export default function HeroBanner({ contentfulFields, navigation }) {
           <div className='fixed inset-0 z-50' />
           <DialogPanel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
             <div className='flex items-center justify-between'>
-              <a href='#' className='-m-1.5 p-1.5'>
+              {/* <a href='#' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>Framtíðni</span>
                 <img
                   alt=''
-                  src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
-                  className='h-8 w-auto'
+                  src={
+                    contentfulFields.logoNav
+                      ? contentfulFields.logoNav.fields.file.url
+                      : null
+                  }
+                  className='h-14 w-auto'
                 />
-              </a>
+              </a> */}
               <button
                 type='button'
                 onClick={() => setMobileMenuOpen(false)}
@@ -107,13 +123,17 @@ export default function HeroBanner({ contentfulFields, navigation }) {
         </Dialog>
       </header>
 
-      <div className='relative bg-framtidni-green isolate px-6 pt-14 lg:px-8'>
+      <div
+        className='relative bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right'
+        style={{
+          backgroundImage: `url(${heroBannerImageUrl})`,
+        }}
+      >
         <div
           aria-hidden='true'
           className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
         ></div>
         <div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
-          <div className='hidden sm:mb-8 sm:flex sm:justify-center'></div>
           <div className='text-center'>
             <h1 className='text-4xl font-bold tracking-tight text-gray-50 sm:text-6xl'>
               {contentfulFields.heroBannerHeadline}
