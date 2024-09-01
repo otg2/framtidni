@@ -22,9 +22,9 @@ export default function Project({ contentfulFields, customRef }) {
             >
               <div className='group relative'>
                 <img
-                  alt=''
                   src={project.projectItemImage.fields.file.url}
                   className='h-300 w-300 rounded-md bg-gray-50 text-center'
+                  alt={project.projectItemName}
                 />
                 <h3 className='mt-3 text-center font-semibold leading-6 text-gray-50'>
                   <p>

@@ -31,13 +31,13 @@ export default function HeroBanner({ contentfulFields, navigation }) {
               <a href='#' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>Framtíðni</span>
                 <img
-                  alt=''
                   src={
                     contentfulFields.logoNav
                       ? contentfulFields.logoNav.fields.file.url
                       : null
                   }
                   className='h-14 w-auto'
+                  alt='Framtíðni logo'
                 />
               </a>
             }
@@ -124,6 +124,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
       </header>
 
       <div
+        alt='Rafvirki'
         className='relative bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
         style={{
           backgroundImage: `url(${heroBannerImageUrl})`,
@@ -139,9 +140,9 @@ export default function HeroBanner({ contentfulFields, navigation }) {
             <h1 className='text-4xl font-bold tracking-tight text-gray-50 sm:text-6xl'>
               {contentfulFields.heroBannerHeadline}
             </h1>
-            <p className='mt-6 text-lg leading-8 text-gray-50'>
+            <h2 className='mt-6 text-lg leading-8 text-gray-50'>
               {contentfulFields.heroBannerSubject}
-            </p>
+            </h2>
             <div className='mt-10 flex items-center justify-center gap-x-6'>
               <a
                 onClick={() =>
