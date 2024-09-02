@@ -629,6 +629,10 @@ video {
   right: 0px;
 }
 
+.right-5 {
+  right: 1.25rem;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -763,6 +767,10 @@ video {
   display: none;
 }
 
+.h-14 {
+  height: 3.5rem;
+}
+
 .h-48 {
   height: 12rem;
 }
@@ -777,18 +785,6 @@ video {
 
 .h-8 {
   height: 2rem;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
-.h-14 {
-  height: 3.5rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .w-1\/2 {
@@ -817,10 +813,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-96 {
-  width: 24rem;
 }
 
 .max-w-2xl {
@@ -992,53 +984,8 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[image\:var\(--image-url\)\] {
-  background-image: var(--image-url);
-}
-
-.bg-\[url\(\"\/framtidni_logo\.png\"\)\] {
-  background-image: url("/framtidni_logo.png");
-}
-
-.bg-\[url\(\"framtidni_logo\.png\"\)\] {
-  background-image: url("framtidni_logo.png");
-}
-
-.from-slate-600 {
-  --tw-gradient-from: #475569 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(71 85 105 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-indigo-500 {
-  --tw-gradient-from: #6366f1 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(99 102 241 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.bg-cover {
-  background-size: cover;
-}
-
 .bg-contain {
   background-size: contain;
-}
-
-.bg-clip-border {
-  background-clip: border-box;
-}
-
-.bg-clip-content {
-  background-clip: content-box;
-}
-
-.bg-clip-text {
-  -webkit-background-clip: text;
-          background-clip: text;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-right {
@@ -1276,10 +1223,6 @@ video {
   accent-color: #66B1A4;
 }
 
-.bg-blend-multiply {
-  background-blend-mode: multiply;
-}
-
 .bg-blend-soft-light {
   background-blend-mode: soft-light;
 }
@@ -1372,24 +1315,12 @@ video {
     top: calc(100% - 30rem);
   }
 
-  .sm\:mb-8 {
-    margin-bottom: 2rem;
-  }
-
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:w-\[25rem\] {
     width: 25rem;
   }
 
   .sm\:max-w-sm {
     max-width: 24rem;
-  }
-
-  .sm\:justify-center {
-    justify-content: center;
   }
 
   .sm\:gap-y-20 {
