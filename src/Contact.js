@@ -9,6 +9,7 @@ export default function Contact({ contentfulFields, customRef }) {
   if (contentfulFields) {
     contactInfo = [
       {
+        href: 'tel:' + contentfulFields.contactPhoneNumber,
         name: contentfulFields.contactPhoneNumber,
         icon: (
           <PhoneIcon
@@ -18,6 +19,7 @@ export default function Contact({ contentfulFields, customRef }) {
         ),
       },
       {
+        href: {},
         name: contentfulFields.contactEmail,
         icon: (
           <EnvelopeIcon
@@ -27,9 +29,13 @@ export default function Contact({ contentfulFields, customRef }) {
         ),
       },
       {
+        href: contentfulFields.contactInstagram,
         name: contentfulFields.contactInstagram,
         icon: (
-          <a className='absolute left-1 top-1 h-5 w-5 text-gray-200'>
+          <a
+            className='absolute left-1 top-1 h-5 w-5 text-gray-200'
+            href={contentfulFields.contactInstagram}
+          >
             <svg
               fill='none'
               stroke='currentColor'
@@ -46,9 +52,13 @@ export default function Contact({ contentfulFields, customRef }) {
         ),
       },
       {
+        href: contentfulFields.contactFacebook,
         name: contentfulFields.contactFacebook,
         icon: (
-          <a className='absolute left-1 top-1 h-5 w-5 text-gray-200'>
+          <a
+            className='absolute left-1 top-1 h-5 w-5 text-gray-200'
+            href={contentfulFields.contactFacebook}
+          >
             <svg
               fill='currentColor'
               strokeLinecap='round'
@@ -82,7 +92,7 @@ export default function Contact({ contentfulFields, customRef }) {
                   <div key={info.name} className='relative pl-9'>
                     <dt className='inline font-semibold text-gray-400'>
                       {info.icon}
-                      {info.name}
+                      <a href={info.href}>{info.name}</a>
                     </dt>{' '}
                   </div>
                 ))}
