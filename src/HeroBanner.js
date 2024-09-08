@@ -17,7 +17,14 @@ export default function HeroBanner({ contentfulFields, navigation }) {
 
   const aboutSection = navigation.find((item) => item.id === 'contact');
   return (
-    <div className='bg-framtidni-green'>
+    <div
+      alt='Rafvirki'
+      className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
+      style={{
+        backgroundImage: `url(${heroBannerImageUrl})`,
+        // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,
+      }}
+    >
       <header className='absolute inset-x-10 top-3 z-50'>
         <nav
           aria-label='Global'
@@ -125,12 +132,12 @@ export default function HeroBanner({ contentfulFields, navigation }) {
       </header>
 
       <div
-        alt='Rafvirki'
-        className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
-        style={{
-          backgroundImage: `url(${heroBannerImageUrl})`,
-          // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,
-        }}
+      // alt='Rafvirki'
+      // className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
+      // style={{
+      //   backgroundImage: `url(${heroBannerImageUrl})`,
+      //   // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,
+      // }}
       >
         <div
           aria-hidden='true'
