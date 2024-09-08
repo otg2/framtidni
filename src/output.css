@@ -1397,6 +1397,11 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:inset-x-0 {
+    left: 0px;
+    right: 0px;
+  }
+
   .sm\:-top-80 {
     top: -20rem;
   }
@@ -1440,8 +1445,21 @@ video {
     padding-bottom: 12rem;
   }
 
+  .sm\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
   .sm\:pt-16 {
     padding-top: 4rem;
+  }
+
+  .sm\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .sm\:pt-4 {
+    padding-top: 1rem;
   }
 
   .sm\:text-2xl {
@@ -1476,6 +1494,16 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:inset-x-0 {
+    left: 0px;
+    right: 0px;
+  }
+
+  .md\:inset-x-10 {
+    left: 2.5rem;
+    right: 2.5rem;
+  }
+
   .md\:bg-cover {
     background-size: cover;
   }
@@ -1488,6 +1516,16 @@ video {
 @media (min-width: 1024px) {
   .lg\:sticky {
     position: sticky;
+  }
+
+  .lg\:inset-x-0 {
+    left: 0px;
+    right: 0px;
+  }
+
+  .lg\:inset-x-10 {
+    left: 2.5rem;
+    right: 2.5rem;
   }
 
   .lg\:top-4 {
@@ -1596,6 +1634,10 @@ video {
     background-size: cover;
   }
 
+  .lg\:bg-contain {
+    background-size: contain;
+  }
+
   .lg\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
@@ -1631,6 +1673,11 @@ video {
 }
 
 @media (min-width: 1536px) {
+  .\32xl\:inset-x-0 {
+    left: 0px;
+    right: 0px;
+  }
+
   .\32xl\:bg-cover {
     background-size: cover;
   }

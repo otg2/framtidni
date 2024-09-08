@@ -36,9 +36,5 @@ export default function Service({ contentfulFields, customRef }) {
         </div>
       </div>
     </div>
-    // <div>
-    //   <h3>{contentfulFields.serviceTitle}</h3>
-    //   {listItems}
-    // </div>
   );
 }

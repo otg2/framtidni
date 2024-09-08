@@ -19,13 +19,12 @@ export default function HeroBanner({ contentfulFields, navigation }) {
   return (
     <div
       alt='Rafvirki'
-      className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-cover md:bg-contain bg-right bg-blend-soft-light'
+      className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-cover lg:bg-contain bg-right bg-blend-soft-light'
       style={{
         backgroundImage: `url(${heroBannerImageUrl})`,
-        // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,
       }}
     >
-      <header className='absolute inset-x-10 top-3 z-50'>
+      <header className='absolute lg:inset-x-10 inset-x-0 top-3 z-50'>
         <nav
           aria-label='Global'
           className='flex items-center justify-between p-6 lg:px-8'
@@ -131,14 +130,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
         </Dialog>
       </header>
 
-      <div
-      // alt='Rafvirki'
-      // className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
-      // style={{
-      //   backgroundImage: `url(${heroBannerImageUrl})`,
-      //   // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,
-      // }}
-      >
+      <div>
         <div
           aria-hidden='true'
           className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
@@ -166,10 +158,6 @@ export default function HeroBanner({ contentfulFields, navigation }) {
             </div>
           </div>
         </div>
-        <div
-          aria-hidden='true'
-          className='absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]'
-        ></div>
       </div>
     </div>
   );
