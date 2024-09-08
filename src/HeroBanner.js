@@ -18,7 +18,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
   const aboutSection = navigation.find((item) => item.id === 'contact');
   return (
     <div className='bg-framtidni-green'>
-      <header className='absolute inset-x-20 top-3 z-50'>
+      <header className='absolute inset-x-10 top-3 z-50'>
         <nav
           aria-label='Global'
           className='flex items-center justify-between p-6 lg:px-8'

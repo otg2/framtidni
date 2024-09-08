@@ -622,6 +622,11 @@ video {
   bottom: 0px;
 }
 
+.inset-x-10 {
+  left: 2.5rem;
+  right: 2.5rem;
+}
+
 .-top-40 {
   top: -10rem;
 }
