@@ -19,7 +19,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
   return (
     <div
       alt='Rafvirki'
-      className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
+      className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-cover md:bg-contain bg-right bg-blend-soft-light'
       style={{
         backgroundImage: `url(${heroBannerImageUrl})`,
         // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,
