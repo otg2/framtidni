@@ -20,12 +20,10 @@ export default function Service({ contentfulFields, customRef }) {
               key={service.serviceItemTitle}
               className='flex max-w-xl flex-col items-start justify-between'
             >
-              <div className='group relative'>
-                <h3 className='mt-3 text-lg font-bold leading-6 text-indigo-800'>
-                  <p
-                  //href={post.href}
-                  >
-                    <span className='absolute inset-0' />
+              <div className='group relative '>
+                <h3 className='mt-3 text-lg font-bold leading-6 text-framtidni-green border-b border-orange-500 pb-3'>
+                  <p>
+                    <span className='absolute inset-0 ' />
                     {service.serviceItemTitle}
                   </p>
                 </h3>

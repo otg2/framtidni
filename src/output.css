@@ -612,6 +612,11 @@ video {
   right: 0px;
 }
 
+.inset-x-20 {
+  left: 5rem;
+  right: 5rem;
+}
+
 .inset-y-0 {
   top: 0px;
   bottom: 0px;
@@ -633,12 +638,12 @@ video {
   right: 1.25rem;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .top-1 {
   top: 0.25rem;
+}
+
+.top-3 {
+  top: 0.75rem;
 }
 
 .top-\[calc\(100\%-13rem\)\] {
@@ -732,6 +737,10 @@ video {
   margin-top: 2rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -785,6 +794,10 @@ video {
 
 .h-8 {
   height: 2rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-1\/2 {
@@ -955,14 +968,36 @@ video {
   border-width: 1px;
 }
 
+.border-x-4 {
+  border-left-width: 4px;
+  border-right-width: 4px;
+}
+
+.border-b-4 {
+  border-bottom-width: 4px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
+.border-orange-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(249 115 22 / var(--tw-border-opacity));
+}
+
 .bg-framtidni-green {
   --tw-bg-opacity: 1;
-  background-color: rgb(14 88 98 / var(--tw-bg-opacity));
+  background-color: rgb(2 84 80 / var(--tw-bg-opacity));
 }
 
 .bg-gray-50 {
@@ -986,6 +1021,14 @@ video {
 
 .bg-contain {
   background-size: contain;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-auto {
+  background-size: auto;
 }
 
 .bg-right {
@@ -1090,6 +1133,18 @@ video {
 
 .pt-14 {
   padding-top: 3.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 
 .text-center {
@@ -1217,6 +1272,36 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-framtidni-green {
+  --tw-text-opacity: 1;
+  color: rgb(2 84 80 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.overline {
+  text-decoration-line: overline;
+}
+
+.decoration-green-100 {
+  text-decoration-color: #dcfce7;
+}
+
+.decoration-green-900 {
+  text-decoration-color: #14532d;
+}
+
+.underline-offset-8 {
+  text-underline-offset: 8px;
 }
 
 .accent-checkbox-green {

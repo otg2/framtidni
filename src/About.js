@@ -39,7 +39,7 @@ export default function About({ contentfulFields, customRef }) {
         <div className='lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8'>
           <div className='lg:pr-4'>
             <div className='max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg'>
-              <h4 className='font-bold tracking-tight text-indigo-700 sm:text-2xl'>
+              <h4 className='font-bold tracking-tight text-orange-500 sm:text-2xl'>
                 {contentfulFields.aboutSkillTitle}
               </h4>
               <ul role='list' className='mt-8 space-y-8 text-gray-800'>
@@ -47,13 +47,15 @@ export default function About({ contentfulFields, customRef }) {
                   <li className='flex gap-x-3' key={skill.skillItemTitle}>
                     <CheckIcon
                       aria-hidden='true'
-                      className='mt-1 h-5 w-5 flex-none text-indigo-800'
+                      className='mt-1 h-5 w-5 flex-none text-orange-500'
                     />
                     <span>
-                      <strong className='font-semibold text-indigo-800'>
-                        {skill.skillItemTitle} -
-                      </strong>{' '}
-                      {skill.skillItemDescription}
+                      <strong className='font-semibold text-framtidni-green'>
+                        {skill.skillItemTitle}
+                      </strong>
+                      <p className=' text-gray-500'>
+                        {skill.skillItemDescription}
+                      </p>
                     </span>
                   </li>
                 ))}

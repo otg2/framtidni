@@ -17,8 +17,8 @@ export default function HeroBanner({ contentfulFields, navigation }) {
 
   const aboutSection = navigation.find((item) => item.id === 'contact');
   return (
-    <div className='bg-white'>
-      <header className='absolute inset-x-0 top-0 z-50'>
+    <div className='bg-framtidni-green'>
+      <header className='absolute inset-x-20 top-3 z-50'>
         <nav
           aria-label='Global'
           className='flex items-center justify-between p-6 lg:px-8'
@@ -126,7 +126,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
 
       <div
         alt='Rafvirki'
-        className='relative bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
+        className='relative h-screen bg-framtidni-green isolate px-6 pt-14 lg:px-8 bg-no-repeat bg-contain bg-right bg-blend-soft-light'
         style={{
           backgroundImage: `url(${heroBannerImageUrl})`,
           // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),url(${heroBannerImageUrl})`,

@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'framtidni-green': '#0E5862',
+        'framtidni-green': '#025450',
         'checkbox-green': '#66B1A4',
+        'framtidni-old-green': '#0E5862',
       },
     },
   },
