@@ -135,12 +135,12 @@ export default function HeroBanner({ contentfulFields, navigation }) {
           aria-hidden='true'
           className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
         ></div>
-        <div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
+        <div className='mx-auto max-w-2xl py-36 sm:py-72 lg:py-72'>
           <div className='text-center'>
-            <h1 className='text-4xl font-bold tracking-tight text-gray-50 sm:text-6xl'>
+            <h1 className='lg:text-7xl text-4xl font-bold tracking-tight text-gray-50 sm:text-6xl'>
               {contentfulFields.heroBannerHeadline}
             </h1>
-            <h2 className='mt-6 text-lg leading-8 text-gray-50'>
+            <h2 className='mt-6 lg:text-xl text-lg leading-8 text-gray-50'>
               {contentfulFields.heroBannerSubject}
             </h2>
             <div className='mt-10 flex items-center justify-center gap-x-6'>
@@ -151,7 +151,7 @@ export default function HeroBanner({ contentfulFields, navigation }) {
                   })
                 }
                 href='#'
-                className='rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                className='rounded-md bg-orange-600 w-60 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
               >
                 Hafa samband
               </a>
