@@ -6,7 +6,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function HeroBanner({ contentfulFields, navigation }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  console.log(contentfulFields);
 
   var heroBannerImageUrl;
   if (contentfulFields.heroBannerImage) {

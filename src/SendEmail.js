@@ -45,6 +45,7 @@ function SendEmail({ contentfulFields }) {
         );
     }
     if (sendSuccess) {
+      console.log('Reset form');
       emailForm.current.reset();
     }
   };
