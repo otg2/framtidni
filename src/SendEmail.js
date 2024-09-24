@@ -1,52 +1,94 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { json } from 'react-router-dom';
 
 function SendEmail({ contentfulFields }) {
+  const [isSending, setIsSending] = useState(false);
   const [sendToSelf, setSendToSelf] = useState(true);
+
   const handleSendToSelf = (e) => {
     setSendToSelf(!sendToSelf);
   };
 
   const emailForm = useRef();
+  const [errors, setErrors] = useState({});
+
+  const validateForm = (emailForm) => {
+    const errors = {};
+    // Name
+    if (!emailForm.current[0].value.trim()) {
+      errors.name = 'Nafn vantar';
+    }
+    // Email
+    if (!emailForm.current[1].value.trim()) {
+      errors.email = 'Netfang vantar';
+    } else if (!/\S+@\S+\.\S+/.test(emailForm.current[1].value)) {
+      errors.email = 'Netfang er vitlaust';
+    }
+    // Text
+    if (!emailForm.current[2].value.trim()) {
+      errors.message = 'Vantar skilaboð';
+    }
+    return errors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    var sendSuccess = false;
-    // https://www.emailjs.com/docs/faq/is-it-okay-to-expose-my-public-key/
-    emailjs
-      .sendForm('service_4zl6mh2', 'template_waor0r4', emailForm.current, {
-        publicKey: 'AKkcCk3ehaSqqM1q5',
-      })
-      .then(
-        () => {
-          console.log('Email sent to framtidni');
-          sendSuccess = true;
-        },
-        (error) => {
-          alert(
-            'Ekki tókst að senda tölvupóst á okkur. Reyndu aftur eða hafðu samband á öðruvísi hátt'
-          );
-          console.log('Failed', error);
-        }
-      );
-    if (sendToSelf) {
+
+    const newErrors = validateForm(emailForm);
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      // Form submission logic here
+      console.log('Form validated successfully!');
+
+      setIsSending(true);
+      // https://www.emailjs.com/docs/faq/is-it-okay-to-expose-my-public-key/
       emailjs
-        .sendForm('service_4zl6mh2', 'template_obt1icj', emailForm.current, {
+        .sendForm('service_4zl6mh2', 'template_waor0r4', emailForm.current, {
           publicKey: 'AKkcCk3ehaSqqM1q5',
         })
         .then(
           () => {
-            console.log('Copy of email sent to framtidni');
-            sendSuccess = true;
+            console.log('Email sent to framtidni');
+            if (sendToSelf) {
+              emailjs
+                .sendForm(
+                  'service_4zl6mh2',
+                  'template_obt1icj',
+                  emailForm.current,
+                  {
+                    publicKey: 'AKkcCk3ehaSqqM1q5',
+                  }
+                )
+                .then(
+                  () => {
+                    console.log('Copy of email sent to framtidni');
+                    console.log('Reset form');
+                    emailForm.current.reset();
+                    setErrors({});
+                    setIsSending(false);
+                  },
+                  (error) => {
+                    console.log('Failed to send to self', error);
+                  }
+                );
+            } else {
+              console.log('Reset form');
+              emailForm.current.reset();
+              setErrors({});
+              setIsSending(false);
+            }
           },
           (error) => {
-            console.log('Failed', error);
+            alert(
+              'Ekki tókst að senda tölvupóst á okkur. Reyndu aftur eða hafðu samband á öðruvísi hátt'
+            );
+            console.log('Failed to send to framtidni', error);
           }
         );
-    }
-    if (sendSuccess) {
-      console.log('Reset form');
-      emailForm.current.reset();
+    } else {
+      console.log('Form submission failed due to validation errors.');
     }
   };
 
@@ -95,11 +137,21 @@ function SendEmail({ contentfulFields }) {
             </div>
             <button
               type='submit'
-              className='flex px-8 py-2 mx-auto text-lg text-white rounded-full bg-orange-600 hover:bg-orange-dark focus:outline-none float-end disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
+              className='flex px-8 py-2 mx-auto text-lg text-white rounded-full bg-orange-600 hover:bg-orange-dark focus:outline-none float-end disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
+              disabled={isSending}
             >
-              Senda
+              {!isSending ? 'Senda' : 'Sendist...'}
             </button>
           </div>
+          <p className='flex px-2 py-2 mx-auto text-md text-red-900 font-bold'>
+            {errors.name}
+          </p>
+          <p className='flex px-2 py-2 mx-auto text-md text-red-900 font-bold'>
+            {errors.email}
+          </p>
+          <p className='flex px-2 py-2 mx-auto text-md text-red-900 font-bold'>
+            {errors.message}
+          </p>
         </div>
       </form>
     </div>
